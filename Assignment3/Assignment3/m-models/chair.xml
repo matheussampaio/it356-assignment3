@@ -1,0 +1,40 @@
+<scene>
+    <instance name="box" path="models/box"/>
+
+    <transform>
+        <set>
+            <!-- chair of height 1 -->
+            <scale>1 1 1</scale>
+            <translate>0 0 0</translate>
+        </set>
+
+        <group name="chair">
+            <transform>
+                <set>
+                    <translate>0.6 0.65 0</translate>
+                </set>
+                <transform name="chair-back">
+                    <set>
+                        <scale>0.2 1.5 1</scale>
+                    </set>
+                    <object instanceof="box">
+                        <material>
+                            <color>1 1 1</color>
+                        </material>
+                    </object>
+                </transform>
+            </transform>
+            <transform name="chair-bottom">
+                <set>
+                    <scale>1 0.2 1</scale>
+                </set>
+                <object instanceof="box">
+                    <material>
+                        <color>1 0 1</color>
+                    </material>
+                </object>
+            </transform>
+        </group>
+    </transform>
+
+</scene>
