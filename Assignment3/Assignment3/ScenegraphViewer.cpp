@@ -36,7 +36,7 @@ double frame_rate;
 bool mousePressed;
 int mouseX,mouseY;
 
-string filename = "m-models/matheus-car.xml";
+string filename = "l-models/l-car.xml";
 
 int main(int argc, char *argv[])
 {
@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Scenegraph Viewer", sf::Style::Default, contextSettings);
-	resize(800,600);
-  //  window.setVerticalSyncEnabled(true);
+	resize(800, 600);
+	// window.setVerticalSyncEnabled(true);
 
     // Make it the active window for OpenGL calls
  	window.setActive();   
@@ -69,9 +69,8 @@ int main(int argc, char *argv[])
 
     //initialize stuff. This will likely change with every program.
     init(filename);
-
 	
-// Start game loop
+	// Start game loop
     while (window.isOpen())
     {
         // Process events
@@ -79,14 +78,11 @@ int main(int argc, char *argv[])
         while (window.pollEvent(event))
         {
 			processEvent(event,window);
-
         }
 
 		if (window.isOpen())
 			display(&window);
     }
-
-    
 
     return EXIT_SUCCESS;
 }
@@ -205,7 +201,6 @@ void display(sf::RenderWindow *window)
 	
 	// Finally, display the rendered frame on screen
 	window->display();
-//	cout << "Rendering" << endl;
 }
 
 /*
@@ -236,7 +231,6 @@ void init(string& filename)
 	v.initialize();
 	v.openFile(filename);
 
-	if (!font.loadFromFile("resources/GARA.ttf"))
+	if (!font.loadFromFile("resources/GARA.TTF"))
 		return;
-
 }

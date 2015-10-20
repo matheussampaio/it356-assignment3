@@ -4,21 +4,24 @@
 #include <map>
 #include <stack>
 #include <vector>
-using namespace std;
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <utils/Object.h>
 #include "Node.h"
 
+using namespace std;
+
 class Scenegraph
 {    
     friend class LeafNode;
 	friend class SceneXMLReader;
+
 public:
     Scenegraph();
     ~Scenegraph();
-    void makeScenegraph(Node *root);
+
+	void makeScenegraph(Node *root);
     void initShaderProgram(GLint shaderProgram);
     void draw(stack<glm::mat4>& modelView);
 
@@ -49,7 +52,7 @@ public:
 		}
 		*/
 
-		if (instances.count(name)<1)
+		if (instances.count(name) < 1)
 			return NULL;
 
 		return instances[name];
@@ -63,7 +66,7 @@ public:
 private:
     Node *root;
 	map<string,graphics::Object *> instances;
-    GLint objectColorLocation,modelviewLocation;
+    GLint objectColorLocation, modelviewLocation;
 };
 
 #endif // SCENEGRAPH_H

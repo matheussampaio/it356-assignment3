@@ -36,6 +36,9 @@
     <ClInclude Include="View.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scenegraph.cpp">
@@ -61,6 +64,12 @@
       <Filter>Resource Files</Filter>
     </Xml>
     <Xml Include="m-models\matheus-car.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="l-models\l-car.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="l-models\l-chair.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

@@ -1,0 +1,41 @@
+<scene>
+	<instance name="box" path="models/box"/>
+
+	<transform name="car">
+		<set>
+			<scale>20 20 20</scale>
+			<translate>0 -36 0</translate>
+		</set>
+
+		<group>
+
+			<transform name="chair-one">
+				<set>
+					<translate>1 1 1</translate>
+				</set>
+				<group name="chair" from="l-models/l-chair.xml"></group>
+			</transform>
+
+			<transform name="chair-two">
+				<set>
+					<translate>1 1 2.3</translate>
+				</set>
+				<group name="chair" from="l-models/l-chair.xml"></group>
+			</transform>
+
+			<transform name="chair-three">
+				<set>
+					<translate>2.8 1 1</translate>
+				</set>
+				<group name="chair" from="l-models/l-chair.xml"></group>
+			</transform>
+
+			<transform name="chair-four">
+				<set>
+					<translate>2.8 1 2.3</translate>
+				</set>
+				<group name="chair" from="l-models/l-chair.xml"></group>
+			</transform>
+		</group>
+	</transform>
+</scene>

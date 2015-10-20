@@ -82,6 +82,7 @@
     <ClInclude Include="GroupNode.h" />
     <ClInclude Include="LeafNode.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Scenegraph.h" />
     <ClInclude Include="SceneXMLReader.h" />
     <ClInclude Include="TransformNode.h" />
@@ -97,6 +98,12 @@
     <None Include="triangles.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="l-models\l-chair.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+    <Xml Include="l-models\l-car.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="m-models\chair.xml" />
     <Xml Include="m-models\matheus-car.xml" />
   </ItemGroup>
