@@ -36,7 +36,7 @@ double frame_rate;
 bool mousePressed;
 int mouseX,mouseY;
 
-string filename = "l-models/l-car.xml";
+string filename = "models/wall.xml";
 
 int main(int argc, char *argv[])
 {

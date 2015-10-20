@@ -27,7 +27,7 @@ void Scenegraph::makeScenegraph(Node *r)
 		this->root->setScenegraph(this);
 
 
-	car = root->getNode("car");
+	//car = root->getNode("car");
 }
 
 Scenegraph::~Scenegraph()
@@ -53,11 +53,11 @@ void Scenegraph::draw(stack<glm::mat4>& modelView)
 
 void Scenegraph::animate(float time)
 {
-	TransformNode& tNode = dynamic_cast<TransformNode&>(*car);
+	/*TransformNode& tNode = dynamic_cast<TransformNode&>(*car);
 
 	glm::mat4 transform = glm::mat4(1.0)
 		* glm::rotate(glm::mat4(1.0), time * 100, glm::vec3(1, 0, 0));
 
-	tNode.setAnimationTransform(transform);
+	tNode.setAnimationTransform(transform);*/
 }
 
