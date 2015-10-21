@@ -14,10 +14,13 @@
 #include <GL/glew.h>
 #include <SFML/OpenGL.hpp>
 #include "View.h"
+#include "ViewMaze.h"
+#include "Maze.h"
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <iomanip>
+
 using namespace std;
 
 
@@ -28,6 +31,16 @@ void display(sf::RenderWindow *window);
 void processEvent(sf::Event event,sf::RenderWindow& window);
 void drawText(sf::RenderWindow& window,string text,int x,int y);
 
+int INIT_WIDTH = 800, INIT_HEIGHT = 800;
+
+string FILENAME_INPUT = "maze-50x50.txt";
+string filename = "models/maze.xml";
+
+/* Maze Instance */
+Maze mMaze(FILENAME_INPUT, INIT_WIDTH, INIT_HEIGHT);
+
+ViewMaze mViewMaze;
+
 View v; //an object to our View class that encapsulates everything that we do.
 sf::Font font;
 sf::Clock sfclock;
@@ -36,7 +49,8 @@ double frame_rate;
 bool mousePressed;
 int mouseX,mouseY;
 
-string filename = "models/maze.xml";
+/* Define is data and index should update */
+bool mDataOutdated = true, mIndexOutdated = true;
 
 int main(int argc, char *argv[])
 {
@@ -167,36 +181,33 @@ void drawText(sf::RenderWindow *window,string text,int x,int y)
 
 void display(sf::RenderWindow *window)
 {
-	if (frames==0)
-		sfclock.restart();
-	
 	// Draw using SFML
-	window->pushGLStates();
-	window->resetGLStates();
+	//window->pushGLStates();
+	//window->resetGLStates();
 	//insert SFML drawing code here (any part you are using that does not involve opengl code)
-	window->popGLStates();
+	//window->popGLStates();
 
 	//set up the background color of the window. This does NOT clear the window. Right now it is (0,0,0) which is black
-	glClearColor(0,0,0,0);
+	glClearColor(1,0,0,0);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); //this command actually clears the window.
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	v.draw(); //simply delegate to our view class that has all the data and does all the rendering
 
-	if (frames>500)
-	{
-		sf::Time t = sfclock.getElapsedTime();
-		frame_rate = frames/t.asSeconds();
-		frames = 0;
-	}
-	else
-	{
-		frames++;
-	}
-	stringstream str;
+    if (mDataOutdated)
+    {
+        mViewMaze.setVertexData(mMaze.getVertexData());
 
-	str << "Frame rate " << frame_rate;
-	// Draw some text on top of our OpenGL object
-	drawText(window,str.str(),window->getSize().x,20);
+        mDataOutdated = false;
+    }
+
+    if (mIndexOutdated)
+    {
+        mViewMaze.setVertexIndex(mMaze.getVertexIndex());
+
+        mIndexOutdated = false;
+    }
+
+    mViewMaze.draw();
     
 	
 	// Finally, display the rendered frame on screen
@@ -214,6 +225,12 @@ void resize(int w,int h)
     //delegate to our view class.
     v.resize(w,h);
 
+    mViewMaze.resize(w, h);
+
+    mMaze.resize(w, h);
+
+    mDataOutdated = true;
+
     //sets the viewport to cover the entire area of the resized window
     //glViewport(leftx,topy,width,height)
     glViewport(0,0,w,h);
@@ -221,15 +238,13 @@ void resize(int w,int h)
 
 void init(string& filename)
 {
-    int major,minor;
-    v.getOpenGLVersion(&major,&minor);
-
-    cout <<"Opengl version supported : "<<major<<"."<<minor<<endl;
-    v.getGLSLVersion(&major,&minor);
-    cout << "GLSL version supported : "<<major<<"."<<minor << endl;
+    resize(INIT_WIDTH, INIT_HEIGHT);
+    
     //delegate to our view class to do all the initializing
 	v.initialize();
 	v.openFile(filename);
+
+    mViewMaze.initialize();
 
 	if (!font.loadFromFile("resources/GARA.TTF"))
 		return;
