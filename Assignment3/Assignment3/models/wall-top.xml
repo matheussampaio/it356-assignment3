@@ -1,0 +1,26 @@
+<scene>
+    <instance name="box" path="models/box"/>
+    <transform>
+        <set>
+            <scale>0.09 0.09 0.09</scale>
+            <translate>0 0 0</translate>
+        </set>
+
+        <group name="wall-top">
+
+            <transform>
+                <set>
+                    <scale>11 3 1</scale>
+                    <translate>0 0 -5</translate>
+                </set>
+
+                <object instanceof="box">
+                    <material>
+                        <color>0 1 0</color>
+                    </material>
+                </object>
+            </transform>
+
+        </group>
+    </transform>
+</scene>

@@ -1,0 +1,74 @@
+<scene>
+    <instance name="box" path="models/box"/>
+
+    <transform name="maze">
+        <set>
+            <scale>25 25 25</scale>
+            <translate>0 0 0</translate>
+        </set>
+
+        <group>
+            <!-- <transform>
+                <set>
+                    <translate>-0.5 0 0.5</translate>
+                </set>
+                <group>
+                    <group from="models/wall-top.xml"></group>
+                    <group from="models/wall-right.xml"></group>
+                    <group from="models/wall-bottom.xml"></group>
+                    <group from="models/wall-left.xml"></group>
+                </group>
+            </transform>
+
+            <transform>
+                <set>
+                    <translate>0.5 0 0.5</translate>
+                </set>
+                <group>
+                    <group from="models/wall-top.xml"></group>
+                    <group from="models/wall-right.xml"></group>
+                    <group from="models/wall-bottom.xml"></group>
+                    <group from="models/wall-left.xml"></group>
+                </group>
+            </transform>
+
+            <transform>
+                <set>
+                    <translate>0.5 0 -0.5</translate>
+                </set>
+                <group>
+                    <group from="models/wall-top.xml"></group>
+                    <group from="models/wall-right.xml"></group>
+                    <group from="models/wall-bottom.xml"></group>
+                    <group from="models/wall-left.xml"></group>
+                </group>
+            </transform> -->
+
+            <transform>
+                <set>
+                    <translate>-0.5 0 -0.5</translate>
+                </set>
+                <group>
+                    <group from="models/wall-top.xml"></group>
+                    <group from="models/wall-right.xml"></group>
+                    <group from="models/wall-bottom.xml"></group>
+                    <group from="models/wall-left.xml"></group>
+                </group>
+            </transform>
+
+
+            <transform name="center">
+                <set>
+                    <translate>0 0 0</translate>
+                </set>
+                <object instanceof="box">
+                    <material>
+                        <color>1 1 1</color>
+                    </material>
+                </object>
+            </transform>
+        </group>
+
+    </transform>
+
+</scene>
