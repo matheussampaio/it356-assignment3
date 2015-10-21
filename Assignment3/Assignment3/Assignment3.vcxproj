@@ -115,6 +115,11 @@
     </Xml>
     <Xml Include="m-models\chair.xml" />
     <Xml Include="m-models\matheus-car.xml" />
+    <Xml Include="models\maze.xml" />
+    <Xml Include="models\wall-bottom.xml" />
+    <Xml Include="models\wall-left.xml" />
+    <Xml Include="models\wall-right.xml" />
+    <Xml Include="models\wall-top.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

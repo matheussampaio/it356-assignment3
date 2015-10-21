@@ -12,6 +12,7 @@
 #include <GL/gl.h>
 #include <string>
 #include <vector>
+#include <stack>
 
 #include "VertexAttribs.h"
 
@@ -88,8 +89,8 @@ private:
     //IDs for locating various variables in our shaders
     GLint projectionLocation, modelViewLocation, vPositionLocation, vColorLocation;
 
-    //the actual projection and modelview matrices
-    glm::mat4 proj, modelView;
+    // the actual projection and modelview matrices
+    stack<glm::mat4> proj, modelview;
 
 };
 

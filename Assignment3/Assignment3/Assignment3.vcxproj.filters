@@ -99,5 +99,20 @@
     <Xml Include="l-models\l-chair.xml">
       <Filter>Resource Files</Filter>
     </Xml>
+    <Xml Include="models\maze.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="models\wall-bottom.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="models\wall-left.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="models\wall-right.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="models\wall-top.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

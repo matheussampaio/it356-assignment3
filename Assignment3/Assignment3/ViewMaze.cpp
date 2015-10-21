@@ -27,7 +27,13 @@ void ViewMaze::resize(int w, int h)
     /*
     *This program uses orthographic projection. The corresponding matrix for this projection is provided by the glm function below.
     */
-    proj = glm::ortho(0.0f, WINDOW_WIDTH * 1.0f, WINDOW_HEIGHT * -1.0f, 0.0f); 
+    //proj = glm::ortho(0.0f, WINDOW_WIDTH * 1.0f, WINDOW_HEIGHT * -1.0f, 0.0f); 
+
+    while (!proj.empty())
+        proj.pop();
+
+    proj.push(glm::ortho(0.0f, WINDOW_WIDTH * 1.0f, WINDOW_HEIGHT * -1.0f, 0.0f));
+    //proj.push(glm::perspective(120.0f * 3.14159f / 180, (float)WINDOW_WIDTH / WINDOW_HEIGHT, 0.1f, 10000.0f));
 }
 
 void ViewMaze::initialize()
@@ -94,10 +100,18 @@ void ViewMaze::draw()
 {
     glUseProgram(program);
 
-    modelView = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+    while (!modelview.empty())
+        modelview.pop();
 
-    glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(proj));
-    glUniformMatrix4fv(modelViewLocation, 1, GL_FALSE, glm::value_ptr(modelView));
+    GLuint a;
+
+    modelview.push(glm::mat4(1.0));
+
+    modelview.top() = modelview.top() * 
+        glm::translate(glm::mat4(1.0f), glm::vec3(0.75f * WINDOW_WIDTH, 0.0f, 0.0f));
+
+    glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(proj.top()));
+    glUniformMatrix4fv(modelViewLocation, 1, GL_FALSE, glm::value_ptr(modelview.top()));
 
     glBindVertexArray(vao);
 
@@ -108,6 +122,8 @@ void ViewMaze::draw()
     glFlush();
 
     glUseProgram(0);
+
+    modelview.pop();
 
 }
 

@@ -227,13 +227,13 @@ void resize(int w,int h)
 
     mViewMaze.resize(w, h);
 
-    mMaze.resize(w, h);
+    mMaze.resize(w * 0.25f, h * 0.25f);
 
     mDataOutdated = true;
 
     //sets the viewport to cover the entire area of the resized window
     //glViewport(leftx,topy,width,height)
-    glViewport(0,0,w,h);
+    glViewport(0, 0, w, h);
 }
 
 void init(string& filename)

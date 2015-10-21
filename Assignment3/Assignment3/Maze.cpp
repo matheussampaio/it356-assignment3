@@ -189,8 +189,8 @@ void Maze::removeTwoWalls(std::vector<int> cellsIndex)
 void Maze::updateRatio() {
     mRatio = std::min(mWidth * MAX_SIZE / mColumns, mHeigth * MAX_SIZE / mRows);
 
-    mPaddingX = mWidth * 0.01f;
-    mPaddingY = mHeigth * 0.01f;
+    //mPaddingX = mWidth * 0.01f;
+    //mPaddingY = mHeigth * 0.01f;
 }
 
 void Maze::save(std::string outputName)
