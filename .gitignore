@@ -2,3 +2,5 @@
 **/*.sdf
 **/*.suo
 **/*.opensdf
+
+graphics/
