@@ -1,0 +1,28 @@
+<scene>
+
+<transform name="maze">
+    <set>
+        <scale>50 50 50</scale>
+        <translate>0 0 0</translate>
+    </set>
+
+    <group>
+
+        <transform>
+            <set>
+                <translate>0 0 0</translate>
+            </set>
+            <group>
+                <group from="models/wall-top.xml"></group>
+                <group from="models/wall-right.xml"></group>
+                <group from="models/wall-bottom.xml"></group>
+                <group from="models/wall-left.xml"></group>
+                <group from="models/floor.xml"></group>
+            </group>
+        </transform>
+
+    </group>
+
+</transform>
+
+</scene>

@@ -48,14 +48,14 @@ void Maze::loadMaze()
 
     mCells.reserve(mRows * mColumns);
 
-    for (int y = 0; y < mRows; y++)
+    for (int r = 0; r < mRows; r++)
     {
-        for (int x = 0; x < mColumns; x++)
+        for (int c = 0; c < mColumns; c++)
         {
             int tempBitset;
             infile >> tempBitset;
 
-            mCells.push_back(Cell((y * mColumns + x) * 4, x, y, std::bitset<4>(tempBitset)));
+            mCells.push_back(Cell((r * mColumns + c) * 4, c, r, std::bitset<4>(tempBitset)));
         }
     }
 

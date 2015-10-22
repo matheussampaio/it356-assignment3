@@ -1,31 +1,21 @@
 # CONSTANTS
 header = """
 <scene>
-    <instance name="box" path="models/box"/>
+<instance name="box" path="models/box"/>
 
-    <transform name="maze">
-        <set>
-            <scale>5 5 5</scale>
-            <translate>0 0 0</translate>
-        </set>
+<transform name="maze">
+    <set>
+        <scale>5 5 5</scale>
+        <translate>0 0 0</translate>
+    </set>
 
-        <group>
+    <group>
 """
 
 footer = """
-            <transform name="center">
-                <set>
-                    <translate>0 0 0</translate>
-                </set>
-                <object instanceof="box">
-                    <material>
-                        <color>1 1 1</color>
-                    </material>
-                </object>
-            </transform>
-        </group>
+    </group>
 
-    </transform>
+</transform>
 
 </scene>
 """
@@ -42,14 +32,27 @@ def getCellString(x, z, l, t, r, b):
     if b:
         bottom = """<group from="models/wall-bottom.xml"></group>"""
 
-    return """            <transform><set><translate>{0:.2f} 0 {1:.2f}</translate></set><group>{2}{3}{4}{5}</group></transform>\n""".format(x, z, top, right, bottom, left)
+    return """
+        <transform>
+            <set>
+                <translate>{0:.2f} 0 {1:.2f}</translate>
+            </set>
+            <group>
+                <group from="models/floor.xml"></group>
+                {2}
+                {3}
+                {4}
+                {5}
+            </group>
+        </transform>
+""".format(x, z, top, right, bottom, left)
 
 def str_to_dec_to_bin(n):
     return bin(int(n))[2:].rjust(4, "0")
 
 def main():
     mazeResultFile = open("Assignment3/Assignment3/models/maze.xml", "w")
-    mazeInputFile = open("maze-50x50.txt", "r")
+    mazeInputFile = open("C:\Users\matheus\git\IT356\Maze1\Maze1\maze-edited.txt", "r")
 
     mazeResultFile.write(header)
 

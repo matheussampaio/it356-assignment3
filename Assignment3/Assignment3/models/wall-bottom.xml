@@ -17,7 +17,7 @@
 
                 <object instanceof="box">
                     <material>
-                        <color>0 0 1</color>
+                        <color>0 0 0</color>
                     </material>
                 </object>
             </transform>

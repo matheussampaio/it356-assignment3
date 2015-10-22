@@ -33,7 +33,7 @@ void drawText(sf::RenderWindow& window,string text,int x,int y);
 
 int INIT_WIDTH = 800, INIT_HEIGHT = 800;
 
-string FILENAME_INPUT = "maze-50x50.txt";
+string FILENAME_INPUT = "resources/maze.txt";
 string filename = "models/maze.xml";
 
 /* Maze Instance */
@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
 	contextSettings.minorVersion = 0;
 
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Scenegraph Viewer", sf::Style::Default, contextSettings);
-	resize(800, 600);
+    sf::RenderWindow window(sf::VideoMode(INIT_WIDTH, INIT_HEIGHT), "Scenegraph Viewer", sf::Style::Default, contextSettings);
+    resize(INIT_WIDTH, INIT_HEIGHT);
 	// window.setVerticalSyncEnabled(true);
 
     // Make it the active window for OpenGL calls
@@ -188,7 +188,7 @@ void display(sf::RenderWindow *window)
 	//window->popGLStates();
 
 	//set up the background color of the window. This does NOT clear the window. Right now it is (0,0,0) which is black
-	glClearColor(1,0,0,0);
+	glClearColor(0.2f, 0.2f, 0.2f, 0);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT); //this command actually clears the window.
 	//glEnable(GL_DEPTH_TEST);
 	v.draw(); //simply delegate to our view class that has all the data and does all the rendering

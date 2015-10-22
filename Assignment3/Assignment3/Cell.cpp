@@ -8,6 +8,10 @@ Cell::Cell(int index, float x, float y, std::bitset<4> walls)
     mWalls = walls;
     mLeftTopIndex = index;
     
+    GLfloat r = 1.0f;
+    GLfloat g = 1.0f;
+    GLfloat b = 1.0f;
+
     // left - top : x, y
     mVertex[0].setXYZW(mX , mY, 0, 1);
 
@@ -146,6 +150,8 @@ void Cell::appendVertexIndex(std::vector<GLuint> *vertexIndex) {
 void Cell::appendVertexData(std::vector<MyVertexAttribs> *vertexData, float ratio, float paddingX, float paddingY)
 {
     MyVertexAttribs v;
+
+    v.setColor(1.0f, 0.0f, 1.0f);
 
     for (int i = 0; i < 4; i++)
     {

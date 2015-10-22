@@ -3,21 +3,22 @@
     <transform>
         <set>
             <scale>0.09 0.09 0.09</scale>
+            <!-- humanoid of height 72 -->
             <translate>0 0 0</translate>
         </set>
 
-        <group name="wall-left">
+        <group name="floor">
 
             <transform>
                 <set>
-                    <scale>11 3 1</scale>
-                    <rotate>90 0 1 0</rotate>
-                    <translate>-5 0 0</translate>
+                    <scale>11 11 1</scale>
+                    <rotate>90 1 0 0</rotate>
+                    <translate>0 -2 0</translate>
                 </set>
 
                 <object instanceof="box">
                     <material>
-                        <color>0 0 0</color>
+                        <color>1 1 1</color>
                     </material>
                 </object>
             </transform>
